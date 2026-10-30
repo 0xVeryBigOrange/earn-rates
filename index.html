@@ -1,0 +1,102 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>交易所活期理财收益对比 · 币安/OKX/Bybit/Bitget/Gate · 很大很大的橙子</title>
+<meta name="description" content="实时对比币安、OKX、Bybit、Bitget、Gate 五大交易所活期理财年化：USDT、USDC 等稳定币及 BTC、ETH、SOL。按金额计算分档混合年化与每日收益，数据来自官方 API。">
+<meta name="theme-color" content="#0b0e14">
+<meta property="og:type" content="website"><meta property="og:site_name" content="很大很大的橙子 · 活期理财看板">
+<meta property="og:title" content="友商一出事，理财就加息 · 交易所活期理财收益对比">
+<meta property="og:description" content="币安 / OKX / Bybit / Bitget / Gate 活期年化实时对比，含分档、奖励与每日收益计算。">
+<meta property="og:url" content="https://0xverybigorange.github.io/earn-rates/">
+<meta property="og:image" content="https://0xverybigorange.github.io/earn-rates/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@0xVeryBigOrange">
+<meta name="twitter:title" content="友商一出事，理财就加息 · 交易所活期理财收益对比"><meta name="twitter:description" content="五大交易所活期年化实时对比，按金额算分档收益。">
+<meta name="twitter:image" content="https://0xverybigorange.github.io/earn-rates/og.png">
+<link rel="icon" href="favicon.png"><link rel="apple-touch-icon" href="favicon.png"><link rel="preconnect" href="https://x.com">
+<style>
+:root{--bg:#0b0e14;--card:#141925;--line:#232a3a;--txt:#e6e9f0;--mut:#8a93a6;--acc:#ff9f1c;--good:#20d38a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(1200px 600px at 10% -10%,#2a1a05 0,transparent 60%),var(--bg);color:var(--txt);font-family:-apple-system,"PingFang SC","Microsoft YaHei",system-ui,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 14px 48px}
+header{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+header img{width:56px;height:56px;border-radius:50%;border:2px solid var(--acc);box-shadow:0 0 20px #ff9f1c55}
+.who b{font-size:19px;display:block}.who a{color:var(--acc);text-decoration:none;font-size:14px}
+.xbtn{margin-left:auto;display:flex;align-items:center;gap:8px;background:#000;border:1px solid #333;color:#fff;padding:8px 15px;border-radius:999px;text-decoration:none;font-size:14px}
+h1{font-size:24px;margin:2px 0 6px}.sub{color:var(--mut);font-size:13px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--good);display:inline-block;box-shadow:0 0 8px var(--good);animation:p 2s infinite}@keyframes p{50%{opacity:.3}}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:16px 0}
+.tabs{display:flex;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:3px}
+.tabs button{background:none;border:0;color:var(--mut);padding:8px 16px;border-radius:9px;font-size:14px;cursor:pointer}.tabs button.on{background:var(--acc);color:#000;font-weight:700}
+.tg{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mut);background:var(--card);border:1px solid var(--line);padding:8px 12px;border-radius:12px;cursor:pointer}
+.sum{background:linear-gradient(135deg,#1b2233,#141925);border:1px solid #2c3550;border-radius:16px;padding:14px 16px;margin-bottom:16px}
+.sum h3{margin:0 0 10px;font-size:15px}.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.si{background:#0f131c;border-radius:10px;padding:9px 11px;font-size:12.5px}.si b{font-size:15px}.si .g{color:var(--good);font-weight:700;font-size:17px}.si .ex{color:var(--acc)}.si .m{color:var(--mut);font-size:11.5px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
+.ch{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}.ch b{font-size:18px}
+.amt{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:12px;color:var(--mut)}
+.amt input{width:110px;background:#0f131c;border:1px solid #2c3550;color:var(--txt);border-radius:8px;padding:6px 8px;font-size:14px;text-align:right}
+.row{padding:8px 0;border-top:1px solid var(--line)}.row:first-of-type{border-top:0}
+.rt{display:flex;align-items:center;gap:8px}.rk{width:20px;height:20px;border-radius:50%;background:#232a3a;font-size:11px;display:flex;align-items:center;justify-content:center;flex:none}
+.row.top .rk{background:var(--good);color:#000;font-weight:700}
+.en{font-weight:600;min-width:62px}.bw{flex:1;height:8px;background:#0f131c;border-radius:6px;overflow:hidden}.bf{height:100%;background:linear-gradient(90deg,#ff9f1c,#20d38a);border-radius:6px}
+.pv{font-weight:700;font-size:15px;min-width:64px;text-align:right}.row.top .pv{color:var(--good)}
+.rs{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 0 28px;font-size:11.5px;color:var(--mut);align-items:center}
+.tag{font-size:10.5px;padding:1px 6px;border-radius:6px;border:1px solid}.fl{color:#7cc4ff;border-color:#2f5577}.fx{color:#ffcf7a;border-color:#6b5222}.nu{color:#ff8fa3;border-color:#6b2a3a}
+details{margin:5px 0 0 28px;font-size:11.5px}summary{color:var(--mut);cursor:pointer}
+.st{color:var(--acc);margin-top:5px}.lad{list-style:none;margin:3px 0;padding:0}.lad li{display:flex;justify-content:space-between;gap:8px;padding:2px 6px;border-radius:5px;background:#0f131c;margin-top:2px}.lad .x{background:none;color:var(--acc);font-size:10.5px}
+.meta{color:var(--mut);margin-top:4px;line-height:1.5}.src{color:#5d667a;margin-top:4px;word-break:break-all}
+.na{font-size:11.5px;color:#5d667a;margin-top:8px;border-top:1px dashed var(--line);padding-top:6px}
+.err{background:#2a1418;border:1px solid #4a2028;color:#f2a7ad;border-radius:10px;padding:10px 14px;font-size:13px;margin-top:8px}
+footer{color:var(--mut);font-size:12px;margin-top:20px;line-height:1.7}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.xbtn{margin-left:0}h1{font-size:20px}.amt{margin-left:0;width:100%}.amt input{flex:1}}
+.slogan{margin:0 0 18px;padding:18px 14px;border-radius:18px;text-align:center;background:linear-gradient(135deg,#2a1505,#3a1d06 50%,#1a1206);border:1px solid #ff9f1c66;box-shadow:0 0 40px #ff9f1c33,inset 0 0 30px #ff9f1c1a}.slogan span{font-size:clamp(26px,6vw,46px);font-weight:900;letter-spacing:.08em;background:linear-gradient(90deg,#ffd166,#ff9f1c,#ff6b35);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 30px #ff9f1c44}
+.chg{font-size:11px;margin-left:4px}.up{color:var(--good)}.dn{color:#ff6b6b}.stale{font-size:10.5px;color:#ffcf7a;border:1px solid #6b5222;border-radius:6px;padding:0 5px}
+.en a{color:inherit;text-decoration:none;border-bottom:1px dotted #5d667a}.en a:hover{color:var(--acc)}
+.disc{background:#141925;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-top:18px;font-size:12.5px;color:#c9cfdb;line-height:1.7}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}.sr{position:absolute;left:-9999px}
+</style></head><body><div class="wrap">
+<div class="slogan" role="banner"><span>友商一出事，理财就加息</span></div>
+<header><img src="avatar.jpg" alt="很大很大的橙子 的 X 头像" width="56" height="56"><div class="who"><b>很大很大的橙子</b><a href="https://x.com/0xVeryBigOrange" target="_blank">@0xVeryBigOrange</a></div>
+<a class="xbtn" href="https://x.com/0xVeryBigOrange" target="_blank"><svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>在 X 上关注</a></header>
+<h1>🍊 交易所活期理财收益对比</h1>
+<div class="sub"><span><span class="dot"></span> 实时 · 每 60 秒刷新</span><span>最后更新：<b id="u">加载中…</b></span></div>
+<div class="bar"><div class="tabs"><button data-t="stable" class="on">稳定币</button><button data-t="major">主流币</button><button data-t="all">全部</button></div>
+<label class="tg"><input type="checkbox" id="nu"> 计入新用户专享奖励</label><label class="tg"><input type="checkbox" id="vip" checked> 计入 VIP 专享产品</label><label class="tg"><input type="checkbox" id="vlt"> 计入 HLP 金库（有风险）</label></div>
+<div class="sum"><h3>🏆 每个币种最佳去处（按你输入的金额，混合年化）</h3><div class="sg" id="sum"></div></div>
+<div class="grid" id="g"></div><div id="e"></div>
+<div class="disc" role="note"><b>📖 利率口径说明</b><br>
+• 所有数字均为<b>年化单利（APR）</b>，未计复利：币安 latestAnnualPercentageRate、Bybit estimateApr、Bitget currentApy、OKX estRate、Gate est_rate、Hyperliquid supplyYearlyRate 均为交易所/协议直接给出的年化值。按日/按小时派息再复投时实际收益略高（5% APR 按日复利 ≈ 5.13%）。<br>
+• <b>实时浮动</b>：OKX、Gate 为借贷市场按小时撮合的预估年化，Hyperliquid 随资金利用率实时变化（可在数分钟内大幅波动），均非承诺利率；币安/Bybit/Bitget 为交易所设定、可随时调整。<br>
+• <b>分档与上限</b>：按你的金额逐档计算；Bitget 每个产品有总额上限，超出不计息；Bybit 链上赚币有最低申购额，未达最低额不计。<br>
+• <b>其他币种发放</b>：Gate 小额档的额外奖励以 GT 发放，GT 价格波动会影响实际收益。<b>自动兑换</b>：Bybit 链上赚币 #12 会把 USDC 换成 USDe 投入。<br>
+• <b>起息/赎回</b>：Bitget 活期 T+1 起息（API 显示次日 08:00 起息）；Hyperliquid HLP 存入后有锁定期；OKX/Gate 赎回需等借出资金归还，可能有延迟。<br>
+• <b>资格与地区</b>：新用户专享默认不计入；VIP 产品默认计入（可取消勾选）；部分产品可能按账户显示不同利率（见 Bitget 说明）。各平台对新加坡等地区居民有服务限制，以各交易所用户协议为准，本页不判断你的资格。</div>
+<div class="disc" role="note"><b>⚠️ 免责声明</b>：本页仅为信息聚合，<b>不构成任何投资建议</b>。活期利率随市场与交易所政策随时变化，分档、奖励、新用户/VIP 资格、地区限制等以各交易所官网与账户内显示为准；加密资产存在平台与市场风险，请自行判断。</div>
+<footer>数据优先级：交易所官方 API（币安、Bitget 使用只读签名 API；OKX、Bybit、Gate、Hyperliquid 使用公开 API；Coinbase、Kraken 无公开理财 API，抓取官网页面；Hyperliquid 为链上借贷/金库，非交易所活期理财）→ 仅在 API 不提供的字段（OKX 官网标价、Gate 额外奖励分档）使用官网接口抓取。混合年化 = 按分档逐档计算你的金额后的综合年化；有上限的产品超出部分按 0 计；同一交易所多个产品取对你金额最优者。▲▼ 为基础利率相对上一期的变化。标签：<span class="tag fl">浮动</span> 随市场/交易所调整；<span class="tag fx">设定</span> 交易所公布的分档/奖励；<span class="tag nu">新用户</span> 默认不计入，<span class="tag nu">VIP</span> 默认计入。“数据延迟”表示该交易所最新抓取失败、显示的是最近一次成功数据。每条数据在“详情”中注明来源与抓取时间（新加坡时间）。由 <a href="https://x.com/0xVeryBigOrange" style="color:var(--acc)">@0xVeryBigOrange</a> 制作。</footer>
+</div><script>
+const STABLE=["USDT","USDC","DAI","USDE","USD1","RLUSD","USDG","OKUSD"],MAJOR=["BTC","ETH","SOL"];
+const DEF={USDT:10000,USDC:10000,BTC:1,ETH:10,SOL:100};const SMALL={BTC:0.001,ETH:0.05,SOL:1};const amt={};let D=null,tab="stable";
+const fmt=(x,d=2)=>x>=100?x.toLocaleString('zh-CN',{maximumFractionDigits:2}):(+x).toFixed(x<1?Math.min(6,d+3):d).replace(/\.?0+$/,'');
+function earn(l,A){if(l.min&&A<l.min)return 0;let e=0;for(const[mn,mx,r]of l.tiers){const hi=mx==null?A:Math.min(A,mx);if(hi>mn)e+=(hi-mn)*r/100}return e}
+function evalEx(o,A,nu){let best=null;for(const l of o.ladders){if(l.newuser&&!nu)continue;if(l.exp&&Date.now()>l.exp)continue;if(l.vip&&!document.getElementById('vip').checked)continue;if(l.vault&&!document.getElementById('vlt').checked)continue;const e=earn(l,A);if(!best||e>best.e)best={e,l}}
+ if(!best)return null;const cap=best.l.capped?best.l.tiers[best.l.tiers.length-1][1]:null;return{apy:A?best.e/A*100:0,year:best.e,day:best.e/365,lad:best.l,over:cap!=null&&A>cap?cap:null}}
+function kindTag(o,l){if(l.newuser)return'<span class="tag nu">新用户专享</span>';if(l.tag)return`<span class="tag ${l.vip?'nu':'fx'}">${l.tag}</span>`;if(l.vip)return'<span class="tag nu">VIP 专享</span>';if(l.vault)return'<span class="tag nu">金库·有风险</span>';if(l.onchain)return'<span class="tag fl">链上赚币·浮动</span>';const k=o.kind||'';return k.includes('浮动')?`<span class="tag fl">${k}</span>`:`<span class="tag fx">${k}</span>`}
+function chg(o){if(o.prev==null||o.prev==o.apy)return'';const d=o.apy-o.prev;return`<span class="chg ${d>0?'up':'dn'}" title="基础利率 vs ${o.prev_src||'上一期'} ${o.prev}%">${d>0?'▲':'▼'} 基础 ${Math.abs(d).toFixed(2)}%</span>`}
+function details(o){let h='<details><summary>详情 · 分档 · 来源</summary>';for(const s of o.sections){h+=`<div class="st">${s.title}</div><ul class="lad">`+s.rows.map(t=>`<li><span>${t[0]}</span><b>${t[1]}%</b></li>`+(t[2]?`<li class="x">${t[2]}</li>`:'')).join('')+'</ul>'}
+ h+=`<div class="meta">${o.label}：${o.apy}%<br>${o.meta.map(m=>'· '+m).join('<br>')}</div><div class="src">来源：${o.src}<br>抓取：${o.fetched}（新加坡时间）</div></details>`;return h}
+function rank(c,AO){const A=AO??amt[c]??DEF[c]??1000,nu=document.getElementById('nu').checked,res=[],na=[];
+ for(const x of D.exchanges){if(D.errors[x]){na.push(x+'（接口错误）');continue}const o=D.data[x]&&D.data[x][c];if(!o){na.push(x);continue}const r=evalEx(o,A,nu);if(r)res.push({x,o,...r});else na.push(x+'（仅新用户/VIP 产品）')}
+ res.sort((a,b)=>b.apy-a.apy);return{A,res,na}}
+function cardBody(c){const{A,res,na}=rank(c);const mx=Math.max(...res.map(r=>r.apy),0.0001);
+ return res.map((r,i)=>`<div class="row ${i==0?'top':''}"><div class="rt"><span class="rk">${i+1}</span><span class="en"><a href="${(D.links||{})[r.x]||'#'}" target="_blank" rel="noopener" title="前往 ${r.x} 理财页">${r.x}</a></span><div class="bw"><div class="bf" style="width:${Math.max(2,r.apy/mx*100)}%"></div></div><span class="pv">${fmt(r.apy,3)}%</span></div>
+ <div class="rs">${kindTag(r.o,r.lad)}${chg(r.o)}${D.stale&&D.stale[r.x]?`<span class="stale" title="${D.stale[r.x]}">数据延迟</span>`:''}<span>日收益 ≈ ${fmt(r.day,4)} ${c}</span><span>年收益 ≈ ${fmt(r.year,4)} ${c}</span>${r.over!=null?`<span style="color:#f2a7ad">超出上限 ${fmt(r.over)} 部分不计息</span>`:''}${r.o.ladders.length>1?`<span>采用：${r.lad.name}</span>`:''}</div>${details(r.o)}</div>`).join('')
+ +(na.length?`<div class="na">无活期产品/不可用：${na.join('、')}</div>`:'')}
+function coinsNow(){return D.coins.filter(c=>D.exchanges.some(x=>D.data[x]&&D.data[x][c])).filter(c=>tab=='all'||(tab=='stable'?STABLE:MAJOR).includes(c))}
+function summary(){document.getElementById('sum').innerHTML=coinsNow().map(c=>{const{A,res}=rank(c);if(!res.length)return'';const b=res[0];
+ return`<div class="si"><b>${c}</b> <span class="m">${fmt(A)} ${c}</span><br><span class="ex">${b.x}</span> <span class="g">${fmt(b.apy,3)}%</span><br><span class="m">日 ≈ ${fmt(b.day,4)} · 年 ≈ ${fmt(b.year,4)} ${c}${res[1]?` · 次选 ${res[1].x} ${fmt(res[1].apy,3)}%`:''}</span>${(()=>{const s=SMALL[c]??100,r=rank(c,s).res[0];return r&&r.x!=b.x?`<br><span class="m">小额 ${fmt(s)} ${c}：<span class="ex">${r.x}</span> <span class="g">${fmt(r.apy,3)}%</span></span>`:''})()}</div>`}).join('')}
+function render(){if(!D)return;const g=document.getElementById('g');g.innerHTML=coinsNow().map(c=>`<div class="card"><div class="ch"><b>${c}</b>${STABLE.includes(c)?'<span class="tag fl">稳定币</span>':''}<label class="amt">金额 <input type="number" inputmode="decimal" aria-label="${c} 金额" min="0" step="any" data-c="${c}" value="${amt[c]??DEF[c]??1000}"> ${c}</label></div><div class="cb" id="cb-${c}">${cardBody(c)}</div></div>`).join('');
+ g.querySelectorAll('input').forEach(i=>i.addEventListener('input',e=>{const c=e.target.dataset.c;amt[c]=Math.max(0,+e.target.value||0);document.getElementById('cb-'+c).innerHTML=cardBody(c);summary()}));summary();
+ document.getElementById('e').innerHTML=Object.entries(D.errors).map(([k,v])=>`<div class="err">⚠️ ${k}：${v}</div>`).join('')}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');tab=b.dataset.t;render()});
+document.getElementById('nu').onchange=render;document.getElementById('vip').onchange=render;document.getElementById('vlt').onchange=render;
+async function load(){try{D=await (await fetch(location.hostname.endsWith('github.io')?'data.json?t='+Date.now():'api',{cache:'no-store'})).json();document.getElementById('u').textContent=D.updated||'首次抓取中…';
+ const f=document.activeElement;if(f&&f.tagName=='INPUT'&&f.type=='number'){summary();return}render()}catch(e){document.getElementById('u').textContent='连接失败，重试中…'}}
+load();setInterval(load,60000)</script></body></html>
